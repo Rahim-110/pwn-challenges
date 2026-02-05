@@ -35,6 +35,5 @@ files:
   - voidlib
   - challenge.c
   - Makefile
-  - README.md
 
 state: visible

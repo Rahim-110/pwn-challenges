@@ -36,6 +36,5 @@ files:
   - spaceterm
   - challenge.c
   - Makefile
-  - README.md
 
 state: visible
