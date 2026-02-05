@@ -18,6 +18,9 @@ description: |
 
 value: 500
 type: "dynamic"
+initial: 500
+decay: 20
+minimum: 50
 
 flags:
   - {

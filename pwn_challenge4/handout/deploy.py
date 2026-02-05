@@ -33,9 +33,11 @@ def create_challenge(config):
         "state": config['state']
     }
 
-    # Handle dynamic scoring logic if needed
-    if config['type'] == 'dynamic' and 'extra' in config:
-        data.update(config['extra'])
+    # Handle dynamic scoring - CTFd requires initial, decay, minimum
+    if config['type'] == 'dynamic':
+        data['initial'] = int(config.get('initial', config['value']))
+        data['decay'] = int(config.get('decay', 20))
+        data['minimum'] = int(config.get('minimum', 50))
 
     r = requests.post(endpoint, json=data, headers=headers)
     if r.status_code == 200:
