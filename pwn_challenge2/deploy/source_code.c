@@ -114,7 +114,7 @@ void send_distress_signal(void) {
     printf("\n\033[1;32m[TRANSMIT]>\033[0m ");
     fflush(stdout);
     
-    gets(signal_buffer);
+    read(0, signal_buffer, 256);
     
     puts("\n\033[1;33m[NEXUS-7]\033[0m Transmitting signal...");
     puts("\033[1;33m[NEXUS-7]\033[0m Broadcasting: ");
