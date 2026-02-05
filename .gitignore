@@ -1,0 +1,15 @@
+# Binaries (build on Linux)
+*.exe
+nexus7
+batcomputer
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Debug binaries
+*_debug

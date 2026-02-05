@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  nexus7:
+    build: .
+    container_name: nexus7-ctf
+    ports:
+      - "9002:9002"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 128M
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp:size=10M,mode=1777
