@@ -1,6 +1,12 @@
 /*
  * NEXUS-7 Emergency Console - Abandoned Space Station
  * "The last transmission was 47 years ago..."
+ * 
+ * VULNERABILITY: Stack Buffer Overflow (ret2win)
+ * DIFFICULTY: Easy to Intermediate
+ * ARCHITECTURE: x86_64 Linux, No PIE, No Canary
+ * 
+ * Compile: gcc -O2 -fno-stack-protector -no-pie -o nexus7 source_code.c
  */
 
 #include <stdio.h>
@@ -11,6 +17,7 @@
 #define FLAG_FILE "flag.txt"
 #define FLAG_SIZE 128
 
+// Hidden function - players need to call this via buffer overflow
 void emergency_override(void) {
     FILE *f;
     char flag[FLAG_SIZE];
@@ -103,8 +110,9 @@ void access_manifest(void) {
     puts("");
 }
 
+// VULNERABLE FUNCTION: Buffer overflow here
 void send_distress_signal(void) {
-    char signal_buffer[64];
+    char signal_buffer[64];  // Small buffer - easily overflowed
     
     puts("\n\033[1;34m╔═══════════════════════════════════════════════════════════════╗");
     puts("║                   DISTRESS SIGNAL TRANSMITTER                  ║");
@@ -114,6 +122,9 @@ void send_distress_signal(void) {
     printf("\n\033[1;32m[TRANSMIT]>\033[0m ");
     fflush(stdout);
     
+    // VULNERABILITY: gets() - classic buffer overflow
+    // The buffer is 64 bytes but gets() has no length limit
+    // Overflow to overwrite return address and call emergency_override()
     gets(signal_buffer);
     
     puts("\n\033[1;33m[NEXUS-7]\033[0m Transmitting signal...");

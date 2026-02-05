@@ -1,19 +1,17 @@
 version: '3.8'
 
 services:
-  batcomputer:
+  voidlib:
     build: .
-    container_name: batcomputer-ctf
+    container_name: voidlib-ctf
     ports:
-      - "9001:9001"
-    restart: unless-stopped
-    # Resource limits for security
+      - "9004:9004"
+    restart: always
     deploy:
       resources:
         limits:
           cpus: '0.5'
           memory: 128M
-    # Security options
     security_opt:
       - no-new-privileges:true
     read_only: true

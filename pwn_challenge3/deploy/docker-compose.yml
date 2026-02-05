@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-  nexus7:
+  spaceterm:
     build: .
-    container_name: nexus7-ctf
+    container_name: spaceterm-ctf
     ports:
-      - "9002:9002"
+      - "9003:9003"
     restart: always
     deploy:
       resources:

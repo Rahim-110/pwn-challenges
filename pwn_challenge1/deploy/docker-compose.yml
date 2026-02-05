@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-  nexus7:
+  batcomputer:
     build: .
-    container_name: nexus7-ctf
+    container_name: batcomputer-ctf
     ports:
-      - "9002:9002"
+      - "9001:9001"
     restart: always
     deploy:
       resources:
