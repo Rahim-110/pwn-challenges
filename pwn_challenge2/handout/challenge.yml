@@ -1,0 +1,39 @@
+name: "Nexus-7"
+category: "Pwn"
+description: |
+  **Deep Space, Sector 7-G.**
+  
+  The NEXUS-7 research station went dark 47 years ago. No survivors. No explanation.
+  
+  You're a salvage operator who just docked at the abandoned station. The emergency console 
+  is still functional, but the AI seems... corrupted. There's an override function somewhere 
+  in the system — if only you could reach it.
+  
+  **Connection:** `nc ctf.neocyberrange.com 9002`
+  
+  **Hints:**
+  - The distress signal transmitter accepts user input
+  - Old C functions have dangerous habits
+  - Return addresses live on the stack
+
+value: 500
+type: "dynamic"
+
+flags:
+  - {
+      type: "static",
+      content: "GTH{st4ck_0v3rfl0w_1n_th3_v01d}",
+      data: "case_insensitive",
+    }
+
+tags:
+  - pwn
+  - buffer-overflow
+  - ret2win
+  - easy
+
+files:
+  - source_code.c
+  - README.md
+
+state: visible

@@ -1,0 +1,39 @@
+name: "The Void Library"
+category: "Pwn"
+description: |
+  **Est. 1847 · Digitized 1983**
+  
+  The Void Library — an ancient archive containing forbidden knowledge, 
+  accessible only through a decrepit search terminal.
+  
+  The librarians were sloppy with their code. The search function seems 
+  to do more than just echo your query...
+  
+  **Connection:** `nc ctf.neocyberrange.com 9004`
+  
+  **Hints:**
+  - What happens when user input meets shell commands?
+  - Special characters can break things... or break INTO things
+  - `; && || $()` — the classics never die
+
+value: 500
+type: "dynamic"
+
+flags:
+  - {
+      type: "static",
+      content: "GTH{sh3ll_fr0m_th3_v01d}",
+      data: "case_insensitive",
+    }
+
+tags:
+  - pwn
+  - command-injection
+  - beginner
+
+files:
+  - challenge.c
+  - Makefile
+  - README.md
+
+state: visible

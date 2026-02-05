@@ -1,0 +1,36 @@
+name: "Batcomputer"
+category: "Pwn"
+description: |
+  **Year 2042.** Gotham's legendary Batcomputer has been decommissioned... or so they thought.
+  
+  A rogue signal from the old Wayne Manor servers has been detected. The system is still running, 
+  but it's locked behind military-grade security verification.
+  
+  Your mission: Bypass the authentication and access the classified intel.
+  
+  **Connection:** `nc ctf.neocyberrange.com 9001`
+  
+  **Hints:**
+  - The logging system seems to print your input in a strange way...
+  - `%x %x %x` might reveal more than expected
+  - Format strings can read AND write memory
+
+value: 500
+type: "dynamic"
+
+flags:
+  - {
+      type: "static",
+      content: "GTH{f0rm4t_str1ng_m4st3r_0f_g0th4m}",
+      data: "case_insensitive",
+    }
+
+tags:
+  - pwn
+  - format-string
+  - easy
+
+files:
+  - source_code.c
+
+state: visible

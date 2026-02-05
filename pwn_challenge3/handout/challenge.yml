@@ -1,0 +1,40 @@
+name: "Space Station Alpha"
+category: "Pwn"
+description: |
+  **Orbital Position: LEO-7**
+  
+  Space Station Alpha's access terminal is still operational after the evacuation.
+  The authentication system was hastily deployed, and rumor has it there's a 
+  maintenance override hidden somewhere in the binary.
+  
+  Bypass the security and spawn a shell to retrieve the classified data.
+  
+  **Connection:** `nc ctf.neocyberrange.com 9003`
+  
+  **Hints:**
+  - How big is the access code buffer?
+  - The unlock function is waiting to be called...
+  - Stack alignment matters on x86-64
+
+value: 500
+type: "dynamic"
+
+flags:
+  - {
+      type: "static",
+      content: "GTH{0v3rfl0w_t0_th3_st4rs}",
+      data: "case_insensitive",
+    }
+
+tags:
+  - pwn
+  - buffer-overflow
+  - ret2win
+  - beginner
+
+files:
+  - challenge.c
+  - Makefile
+  - README.md
+
+state: visible
