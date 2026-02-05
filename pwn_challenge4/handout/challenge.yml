@@ -32,6 +32,7 @@ tags:
   - beginner
 
 files:
+  - voidlib
   - challenge.c
   - Makefile
   - README.md

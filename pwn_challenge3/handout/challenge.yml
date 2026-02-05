@@ -33,6 +33,7 @@ tags:
   - beginner
 
 files:
+  - spaceterm
   - challenge.c
   - Makefile
   - README.md
